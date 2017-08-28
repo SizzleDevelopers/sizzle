@@ -7,18 +7,10 @@ import MakeResource from './MakeResource'
 export default  function MainPage() {
   return (
     <div>
-      <Link to='/'>
+      <Link to='/event'>
          <button type="button" className="btn btn-primary">Make Event</button>
        </Link>
-<<<<<<< HEAD
-<<<<<<< HEAD
-      <Link to='/manageevent'>
-=======
-      <Link to='/'>
->>>>>>> parent of 77e93b7... eventpage merge
-=======
-      <Link to='/'>
->>>>>>> parent of 77e93b7... eventpage merge
+      <Link to='/eventlist'>
          <button type="button" className="btn btn-primary">Manage Event</button>
        </Link>
       <Link to='/MakeResource'>
