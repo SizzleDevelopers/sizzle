@@ -35,6 +35,9 @@ class MakeResource extends React.Component {
           </select>
           <button onClick={this.handleSubmit.bind(this)}>Save</button>
         </div>
+        <Link to='/MainPage'>
+          <button type="button" className="btn btn-primary">Home</button>
+        </Link>
       </div>
     )
   }

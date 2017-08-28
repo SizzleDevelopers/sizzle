@@ -7,7 +7,6 @@ import MainPage from './MainPage'
 import MakeResource from './MakeResource'
 import EventPage from '../container/EventPage'
 import EventList from '../container/EventList'
-
 import ManageResources from './ManageResources'
 
 
@@ -16,11 +15,9 @@ const App = () => {
     <Router>
       <div>
         <Route exact path='/' component={LoginPage}/>
-        <Route exact path='/' component={MainPage}/>
-    
-
+        <Route exact path='/MainPage' component={MainPage}/>
+        <Route exact path='/MakeResource' component={MakeResource}/>
         <Route exact path='/ManageResources' component={ManageResources}/>
-
         <Route exact path='/event' component={EventPage}/>
         <Route exact path='/eventlist' component={EventList}/>
         <div className='quote'>
