@@ -2,7 +2,6 @@ import React from 'react'
 import {Grid,Row,Col,Input,Container} from 'react-bootstrap'
 import jump from 'jump.js'
 import { Link } from 'react-router-dom'
-import MakeResource from './MakeResource'
 
 export default  function MainPage() {
   return (
