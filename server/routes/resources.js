@@ -6,13 +6,13 @@ const config = require('../../knexfile')[process.env.NODE_ENV || 'development']
 const knex = require('knex')(config)
 
 
-// router.get('/', (req, res) => {
-//   const connection = knex
-//   getResourcesDb.getResources(connection)
-//     .then(resources => {
-//       res.json(resources)
-//     })
-// })
+router.get('/', (req, res) => {
+  const connection = knex
+  getResourcesDb.getResources(connection)
+    .then(resources => {
+      res.json(resources)
+    })
+})
 
 router.post('/', (req, res) => {
   const resource = req.body

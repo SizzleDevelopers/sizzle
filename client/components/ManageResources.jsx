@@ -2,10 +2,15 @@ import React from 'react'
 import {Grid, Row, Col, Input, Button} from 'react-bootstrap'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
+import { getResources } from '../actions/manageResource'
 
 export class ManageResources extends React.Component {
   constructor(props) {
     super(props)
+  }
+
+  componentDidMount() {
+    this.props.dispatch(getResources())
   }
 
   render() {
