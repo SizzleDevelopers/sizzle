@@ -34,7 +34,6 @@ render() {
   let {ingredients} = this.props
 
   let filteredIngredients =  ingredients.filter(({ingredient}) => ingredient.toLowerCase().includes(search.toLowerCase()) && ingredient != search)
-  console.log({showOptions, ingredients, filteredIngredients});
   return (
     <div className='form-group'>
         <input type='text' className="form-control" name='search' placeholder='Ingredient' value={search} onChange={this.updateSearch.bind(this)}/>

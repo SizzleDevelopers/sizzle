@@ -6,7 +6,7 @@ exports.seed = function (knex, Promise) {
       return knex('events').insert([{
           id: 1,
           date: new Date(2017, 8, 27),
-          is_am: 't',
+          is_am: true,
           description: 'Newtown School community get together',
           title: 'Newtown School Fair',
           user_id: 1
@@ -14,7 +14,7 @@ exports.seed = function (knex, Promise) {
         {
           id: 2,
           date: new Date(2017, 9, 2),
-          is_am: 'f',
+          is_am: false,
           description: 'cancer society fundraiser',
           title: 'Fundraise for Cancer',
           user_id: 2
@@ -22,7 +22,7 @@ exports.seed = function (knex, Promise) {
         {
           id: 3,
           date: new Date(2017, 9, 8),
-          is_am: 't',
+          is_am: true,
           description: 'kaibosh fundraiser',
           title: 'Yet another fundraise',
           user_id: 3

@@ -18,14 +18,14 @@ router.post('/register',
 )
 
 function register (req, res, next) {
-  users.exists(req.body.username)
+  users.exists(req.body.username, req.app.get('db'))
     .then(exists => {
       if (exists) {
         return res.status(400).send({ message: 'User exists' })
       }
       // req.login() can be used to automatically log the user in after registering
 
-      users.createNewUser(req.body)
+      users.createNewUser(req.body, req.app.get('db'))
         .then(() => next())
         .catch(err =>{
         })

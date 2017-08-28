@@ -1,10 +1,13 @@
 const test = require('ava')
 const request = require('supertest')
 
-const app = require('../server/server')
+const createServer = require('../server/server')
+const setupDb = require('./server/setup-db')
+
+setupDb(test, createServer)
 
 test.cb('Authenticate complains about no credentials', t => {
-  request(app)
+  request(t.context.app)
     .post('/api/v1/authenticate')
     .send({})
     .expect(403)
@@ -16,7 +19,7 @@ test.cb('Authenticate complains about no credentials', t => {
 })
 
 test.cb('/api/v1/quote responds without token', t => {
-  request(app)
+  request(t.context.app)
     .get('/api/v1/quote')
     .end((err, res) => {
       t.ifError(err)
@@ -26,7 +29,7 @@ test.cb('/api/v1/quote responds without token', t => {
 })
 
 test.cb("/api/v1/secret 403's without token", t => {
-  request(app)
+  request(t.context.app)
     .get('/api/v1/secret')
     .expect(403)
     .end((err, res) => {

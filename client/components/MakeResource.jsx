@@ -1,3 +1,5 @@
+{/* jsx comment */}
+
 import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
@@ -11,10 +13,14 @@ class MakeResource extends React.Component {
       title: '',
       type: ''
     }
-    this.validTypes = ['resource', 'skill', 'location']
+    this.resourceTypes = ['tomato', 'chicken', 'cheese'],
+    this.skillTypes = ['baking', 'fishmonger', 'masterchef'],
+    this.locationTypes = ['johnsonville', 'karori', 'miramar']
   }
   handleChange(e) {
-    this.setState({[e.target.name]: e.target.value})
+    this.setState({
+      [e.target.name]: e.target.value
+    })
   }
   handleSubmit(e) {
     e.preventDefault()
@@ -24,16 +30,43 @@ class MakeResource extends React.Component {
   render() {
     return (
       <div>
-        <h1>Make Resource</h1>
+        <h2>Make Resource</h2>
         <div className='form-group'>
-          <input type='text' className="form-control" name='title' placeholder='Resource name' value={this.state.title} onChange={this.handleChange.bind(this)}/>
-          <select name='type' onChange={this.handleChange.bind(this)} >
-            <option value=''>Select type</option>
-            {this.validTypes.map((type, i) => (
+
+          {/* resources */}
+          <select name='resources' onChange={this.handleChange.bind(this)}>
+            <option value=''>Select resource</option>
+            {this.resourceTypes.map((type, i) => (
               <option key={i} value={type}>{type}</option>
             ))}
           </select>
-          <button onClick={this.handleSubmit.bind(this)}>Save</button>
+
+          <button onClick={this.handleSubmit.bind(this)}>Add</button>
+          <break>  </break>
+
+          {/* skills */}
+          <select name='skills' onChange={this.handleChange.bind(this)}>
+            <option value=''>Select skill</option>
+            {this.skillTypes.map((type, i) => (
+              <option key={i} value={type}>{type}</option>
+            ))}
+          </select>
+
+          <button onClick={this.handleSubmit.bind(this)}>Add</button>
+          <break>  </break>
+
+          {/* locations */}
+          <select name='locations' onChange={this.handleChange.bind(this)}>
+            <option value=''>Select location</option>
+            {this.locationTypes.map((type, i) => (
+              <option key={i} value={type}>{type}</option>
+            ))}
+          </select>
+
+
+          <button onClick={this.handleSubmit.bind(this)}>Add</button>
+          <break>  </break>
+
         </div>
         <Link to='/MainPage'>
           <button type="button" className="btn btn-primary">Home</button>

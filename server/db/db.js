@@ -37,6 +37,22 @@ const saveLocations = (db, location) => {
   .insert(locations)
 }
 
+const getEvents = (db) => {
+  return db('events').select()
+}
+
+const getEventById = (db, id) => {
+  return db('events').where('id', id).first()
+}
+
+const saveEvent = (db, event) => {
+  return db('events').insert(event)
+}
+
+const delEvent = (db, id) => {
+  return getEventById(db, id).del()
+}
+
 module.exports = {
   getIngredients,
   getSkills,
@@ -44,5 +60,9 @@ module.exports = {
   saveSkills,
   saveLocations,
   saveResources,
-  getLocations
+  getLocations,
+  getEvents,
+  getEventById,
+  saveEvent,
+  delEvent
 }

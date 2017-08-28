@@ -20,7 +20,7 @@ module.exports = {
       filename: ':memory:'
     },
     seeds: {
-      directory: './tests/seeds'
+      directory: './server/db/seeds'
     },
     migrations: {
       directory: './server/db/migrations'
