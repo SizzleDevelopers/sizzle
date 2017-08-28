@@ -18,7 +18,9 @@ class MakeResource extends React.Component {
   }
   handleSubmit(e) {
     e.preventDefault()
-    this.props.dispatch(postResource(this.state))
+    this.props.dispatch(postResource(this.state, () => {
+      this.props.history.push('/eventlist')
+    }))
   }
 
   render() {

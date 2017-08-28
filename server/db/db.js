@@ -17,13 +17,17 @@ const getLocations = (db) => {
   return db('locations')
   .select('*')
 }
+const getResources = (db) => {
+  return db('resources')
+  .select('*')
+}
 
 const saveIngredients = (db, ingredient) => {
   return db('ingredients')
   .insert(ingredients)
 }
 const saveResources = (db, resource) => {
-  return db('resource')
+  return db('resources')
   .insert(resource)
 }
 
