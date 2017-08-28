@@ -1,13 +1,14 @@
 const express = require('express')
 const router = express.Router()
 const saveResourceDb = require('../db/db')
+const getResourcesDb = require('../db/db')
 const config = require('../../knexfile')[process.env.NODE_ENV || 'development']
 const knex = require('knex')(config)
 
 
 // router.get('/', (req, res) => {
 //   const connection = knex
-//   getSkillsDb.getSkills(connection)
+//   getResourcesDb.getResources(connection)
 //     .then(resources => {
 //       res.json(resources)
 //     })
@@ -22,6 +23,7 @@ router.post('/', (req, res) => {
       res.send(resources)
     })
     .catch(err => {
+      res.status(500).send(err.message)
     })
 })
 
