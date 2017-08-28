@@ -56,7 +56,6 @@ render() {
  }
 }
 function matchStateToProps(state) {
-  console.log({state});
   return {locations: state.locations}
 }
 
