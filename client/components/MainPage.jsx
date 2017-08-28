@@ -1,6 +1,8 @@
 import React from 'react'
-import {Grid, Row, Col, Input, Container} from 'react-bootstrap'
+import {Grid, Row, Col, Input,} from 'react-bootstrap'
+
 import jump from 'jump.js'
+import ReactDOM from 'react-dom'
 import {Link} from 'react-router-dom'
 import MakeResource from './MakeResource'
 
