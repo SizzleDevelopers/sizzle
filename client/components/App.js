@@ -6,10 +6,15 @@ import Navbar from '../components/Navbar'
 import LoginPage from '../container/LoginPage'
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 =======
 >>>>>>> 77e93b7d9a407514a355d162c0e1d8f846babcf7
+=======
+
+// import EventPage from '../container/EventPage'
+>>>>>>> parent of 77e93b7... eventpage merge
 =======
 
 // import EventPage from '../container/EventPage'

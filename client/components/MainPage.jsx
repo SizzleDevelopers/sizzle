@@ -11,7 +11,11 @@ export default  function MainPage() {
          <button type="button" className="btn btn-primary">Make Event</button>
        </Link>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <Link to='/manageevent'>
+=======
+      <Link to='/'>
+>>>>>>> parent of 77e93b7... eventpage merge
 =======
       <Link to='/'>
 >>>>>>> parent of 77e93b7... eventpage merge
