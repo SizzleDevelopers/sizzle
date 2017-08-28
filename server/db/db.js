@@ -64,6 +64,7 @@ module.exports = {
   saveSkills,
   saveLocations,
   saveResources,
+  getResources,
   getLocations,
   getEvents,
   getEventById,
