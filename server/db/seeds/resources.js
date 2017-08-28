@@ -7,21 +7,21 @@ exports.seed = function (knex, Promise) {
           id: 1,
           title: 'rowboat',
           type: 'location',
-          user_id: 10,
+          user_id: 1,
           event_id: null
         },
         {
           id: 2,
           title: 'rowboat',
           type: 'ingredient',
-          user_id: 11,
+          user_id: 2,
           event_id: null
         },
         {
           id: 3,
           title: 'rowboat',
           type: 'skill',
-          user_id: 12,
+          user_id: 3,
           event_id: null
         }
       ]);
