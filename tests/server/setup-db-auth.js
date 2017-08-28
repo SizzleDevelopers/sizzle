@@ -1,5 +1,6 @@
 var knex = require('knex')
 var config = require('../../knexfile').test
+const request = require('supertest')
 
 module.exports = (test, createServer) => {
   // Create a separate in-memory database before each test.
@@ -10,6 +11,17 @@ module.exports = (test, createServer) => {
     return t.context.db.migrate.latest()
       .then(function () {
         return t.context.db.seed.run()
+      })
+      .then(function () {
+        return request(t.context.app)
+          .post('/api/v1/register')
+          .send({
+            username: 'test',
+            password: 'test'
+          })
+          .then((res) => {
+            t.context.token = res.body.token
+          }) 
       })
   })
 

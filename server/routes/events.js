@@ -1,28 +1,27 @@
 const express = require('express')
 const router = express.Router()
-const getEventsDb = require('../db/db')
-const saveEventsDb = require('../db/db')
-const config = require('../../knexfile')[process.env.NODE_ENV || 'development']
-const knex = require('knex')(config)
+const {
+  getEvents,
+  saveEvent
+} = require('../db/db')
 
 
 router.get('/', (req, res) => {
-  const connection = knex
-  getEventsDb.getEvents(connection)
+  const db = req.app.get('db')
+  getEvents(db)
     .then(events => {
       res.json(events)
     })
+    .catch(err => console.error(err.message))
 })
 
 router.post('/', (req, res) => {
-
-  const connection = knex
-  saveEventsDb.saveEvents(connection, req.body)
-    .then(events => {
-      res.send(events)
+  const db = req.app.get('db')
+  saveEvent(db, req.body)
+    .then(() => {
+      res.send(req.body)
     })
-    .catch(err => {
-    })
+    .catch(err => console.error(err.message))
 })
 
 

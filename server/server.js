@@ -12,12 +12,13 @@ const resourcesRoute = require('./routes/resources')
 const locationsRoute = require('./routes/locations')
 
 const skillsRoute = require('./routes/skills')
+const eventsRoute = require('./routes/events')
 
 const server = express()
 
 // force SSL
-server.use(function(req, res, next) {
-  if(process.env.NODE_ENV === 'production' && req.headers['x-forwarded-proto']==='http') {
+server.use(function (req, res, next) {
+  if (process.env.NODE_ENV === 'production' && req.headers['x-forwarded-proto'] === 'http') {
     return res.redirect(['https://', req.get('Host'), req.url].join(''))
   }
   next()
@@ -31,11 +32,15 @@ server.use('/api/v1/ingredients', ingredientsRoute)
 server.use('/api/v1/resources', resourcesRoute)
 server.use('/api/v1/locations', locationsRoute)
 server.use('/api/v1/skills', skillsRoute)
-
-passport.use(new LocalStrategy(auth.verify))
+server.use('/api/v1/events', eventsRoute)
 
 server.get('*', function (req, res) {
   res.sendFile(path.join(__dirname, '../public/index.html'))
 })
 
-module.exports = server
+
+module.exports = function (db) {
+  server.set('db', db)
+  passport.use(new LocalStrategy(auth.verify(db)))
+  return server
+}
