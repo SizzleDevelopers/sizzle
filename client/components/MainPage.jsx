@@ -12,7 +12,11 @@ export default  function MainPage() {
        </Link>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       <Link to='/manageevent'>
+=======
+      <Link to='/'>
+>>>>>>> parent of 77e93b7... eventpage merge
 =======
       <Link to='/'>
 >>>>>>> parent of 77e93b7... eventpage merge
