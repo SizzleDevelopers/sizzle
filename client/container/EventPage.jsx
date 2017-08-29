@@ -11,9 +11,9 @@ export class EventPage extends React.Component {
     this.state = {
       title: '',
       description: '',
-      host: null,
-      date: new Date(),
-      is_am: true
+      user_id: null,
+      date: new Date().getTime() / 1000,
+      is_am: true,
     }
   }
 
@@ -29,7 +29,9 @@ export class EventPage extends React.Component {
 
   onSubmit(e) {
     e.preventDefault()
-    this.props.dispatch(createEvent(this.state))
+    const newEvent = { ...this.state }
+    newEvent.user_id = this.props.user.id
+    this.props.dispatch(createEvent(newEvent))
   }
 
   render() {
@@ -70,7 +72,11 @@ export class EventPage extends React.Component {
 }
 
 function mapStateToProps(state) {
-  return {ingredients: state.ingredients, locations: state.locations, skills: state.skills}
-}
+  return {
+    ingredients: state.ingredients,
+    locations: state.locations,
+    skills: state.skills,
+    user: state.auth.user
+  }
 
 export default connect(mapStateToProps)(EventPage)
