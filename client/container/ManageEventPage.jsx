@@ -2,7 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Logo from '../components/Logo'
 import { connect } from 'react-redux'
-import Resources from '../components/MakeResource'
+
+import { editResource } from '../actions/resources'
+import { getResources } from '../actions/manageResource'
 
 export class ManageEventPage extends React.Component {
   constructor(props) {
@@ -12,6 +14,11 @@ export class ManageEventPage extends React.Component {
       location: null,
       skill: null
     }
+  }
+
+
+  componentDidMount() {
+    this.props.dispatch(getResources())
   }
 
   renderLocationOptions() {
@@ -70,20 +77,18 @@ export class ManageEventPage extends React.Component {
 
   onIngredientChanged(e) {
     const ingredientId = document.getElementById('ingredient').value
-    console.log('ingred', ingredientId)
     const ingredient = this.props.ingredients.find((i) => i.id == ingredientId)
     if (ingredient)
-      this.setState({ingredient: {...ingredient, event_id: this.props.eventId}})
+      this.setState({ ingredient: { ...ingredient, event_id: this.props.eventId } })
   }
 
   onLocationChanged(e) {
     const locationOption = document.getElementById('location').value
-    console.log('location', locationOption)
   }
 
   onSubmit(e) {
     e.preventDefault()
-    this.state.ingredient && this.props.dispatch()
+    this.state.ingredient && this.props.dispatch(editResource(this.state.ingredient))
   }
 
   render() {
@@ -114,9 +119,9 @@ export class ManageEventPage extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    ingredients: [{ id: 1, user_id: 1, title: 'apples', event_id: null}, { id: 2, user_id: 2, title: 'walnuts', event_id: null }, { id: 3, user_id: 3, title: 'butter', event_id: null }],
-    locations: [{ id: 4, user_id: 4, title: 'strathmore', event_id: null }, { id: 5, user_id: 5, title: 'newtown', event_id: null }, { id: 6, user_id: 6, title: 'johnsonville', event_id: null }],
-    skills: [{ id: 7, user_id: 7, title: 'baker', event_id: null }, { id: 8, user_id: 8, title: 'masterchef', event_id: null }, { id: 9, user_id: 9, title: 'kitchenhand', event_id: null }]
+    ingredients: state.resources.filter((resource) => resource.type == 'ingredient'),
+    locations: state.resources.filter((resource) => resource.type == 'locations'),
+    skills: state.resources.filter((resource) => resource.type == 'skills'),
   }
 }
 
