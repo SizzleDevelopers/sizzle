@@ -1,6 +1,6 @@
 import React from 'react'
 import {Grid, Row, Col, Input,} from 'react-bootstrap'
-
+import Logo from "./Logo"
 import jump from 'jump.js'
 import ReactDOM from 'react-dom'
 import {Link} from 'react-router-dom'
@@ -9,6 +9,7 @@ import MakeResource from './MakeResource'
 export default function MainPage() {
   return (
     <div>
+      <Logo />
       <Grid>
         <Row>
           <Link to='/event'>

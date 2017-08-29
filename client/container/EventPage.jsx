@@ -52,7 +52,9 @@ export class EventPage extends React.Component {
             </select>
           </Row>
           <Row>
-            <button type='submit' >Sizzle!</button>
+            <Link to='EventList'>
+              <button type='submit' >Sizzle!</button>
+            </Link>
           </Row>
           </form>
           <Row>
