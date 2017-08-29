@@ -2,14 +2,27 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logoutUser} from '../actions/auth'
+import {
+  DropdownButton,
+  ButtonToolbar,
+  Button,
+  Grid,
+  Row,
+  Col,
+  MenuItem
+} from 'react-bootstrap'
 
 const Logout = (props) => {
   return (
+    <Row>
     <Link to='/'>
-      <button onClick={props.logoutUser}>
+      <ButtonToolbar>
+      <Button onClick={props.logoutUser}>
         Logout
-      </button>
+      </Button>
+        </ButtonToolbar>
     </Link>
+  </Row>
   )
 }
 

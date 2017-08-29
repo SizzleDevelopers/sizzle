@@ -51,7 +51,6 @@ class MakeResource extends React.Component {
                 <input type='text' className="form-control" name='title' placeholder='Resource name' value={this.state.title} onChange={this.handleChange.bind(this)}/>
               <ButtonToolbar>
                 <DropdownButton name='type' className="form-control" name='title' placeholder='Resource name' title={this.state.type || "Resource Type"} onChange={this.handleChange.bind(this)}>
-                  {/* <MenuItem eventKey="1">Select type</MenuItem> */}
                   {this.validTypes.map((type, i) => (
                     <MenuItem eventKey={i} key={i} onClick={() => this.handleDropdownChange(type)} value={type}>{type}</MenuItem>
                   ))}
