@@ -78,5 +78,6 @@ function mapStateToProps(state) {
     skills: state.skills,
     user: state.auth.user
   }
+}
 
 export default connect(mapStateToProps)(EventPage)
