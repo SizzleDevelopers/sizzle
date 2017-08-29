@@ -1,11 +1,10 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-
-import { loginUser } from '../actions/login'
+import React, {Component} from 'react'
+import {connect} from 'react-redux'
+import {loginUser} from '../actions/auth'
 import ErrorMessage from './ErrorMessage'
 
 class LoginForm extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       username: '',
@@ -15,31 +14,31 @@ class LoginForm extends Component {
     this.handleChange = this.handleChange.bind(this)
   }
 
-  handleChange (e) {
+  handleChange(e) {
     this.setState({
       ...this.state,
       [e.target.name]: e.target.value
     })
   }
 
-  handleClick () {
-    const { username, password } = this.state
+  handleClick() {
+    const {username, password} = this.state
     const creds = {
       username: username.trim(),
       password: password.trim()
     }
     this.props.loginUser(creds, () => {
-        this.props.history.push('/MainPage')
+      this.props.history.push('/MainPage')
     })
   }
 
-  render () {
+  render() {
     return (
       <div>
-        <p><input name='username' onChange={this.handleChange} placeholder='Username' /></p>
-        <p><input type='password' name='password' onChange={this.handleChange} placeholder='Password' /></p>
+        <p><input name='username' onChange={this.handleChange} placeholder='Username'/></p>
+        <p><input type='password' name='password' onChange={this.handleChange} placeholder='Password'/></p>
         <button onClick={this.handleClick}>Login</button>
-        <ErrorMessage reducer='auth' />
+        <ErrorMessage reducer='auth'/>
       </div>
     )
   }

@@ -16,7 +16,6 @@ export class ManageEventPage extends React.Component {
     }
   }
 
-
   componentDidMount() {
     this.props.dispatch(getResources())
   }
@@ -26,13 +25,13 @@ export class ManageEventPage extends React.Component {
     const locations = this.props.locations.filter((location) => !location.event_id)
       .map((location, i) => {
         return (
-          <option value={location.id}>{`${location.title}`}</option>
+          <option key={i} value={location.id}>{`${location.title}`}</option>
         )
       })
 
-    const selectedLocation = this.props.locations.find((location) => location.event_id == this.props.eventId)
+    const selectedLocation = this.props.locations.find((location, i) => location.event_id == this.props.eventId)
     if (selectedLocation) {
-      const selectedLocationOption = (<option selected value={selectedLocation.id}>{`${selectedLocation.title}`}</option>)
+      const selectedLocationOption = (<option key={i} selected value={selectedLocation.id}>{`${selectedLocation.title}`}</option>)
       return [selectedLocationOption, ...locations]
     }
 
@@ -44,13 +43,13 @@ export class ManageEventPage extends React.Component {
     const ingredients = this.props.ingredients.filter((ingredient) => !ingredient.event_id)
       .map((ingredient, i) => {
         return (
-          <option value={ingredient.id}>{`${ingredient.title} - ${ingredient.kg}`}</option>
+          <option key={i} value={ingredient.id}>{`${ingredient.title} - ${ingredient.kg}`}</option>
         )
       })
 
-    const selectedIngredient = this.props.ingredients.find((ingredient) => ingredient.event_id == this.props.eventId)
+    const selectedIngredient = this.props.ingredients.find((ingredient, i) => ingredient.event_id == this.props.eventId)
     if (selectedIngredient) {
-      const selectedIngredientOption = (<option selected value={selectedIngredient.id}>{`${selectedIngredient.title} - ${selectedIngredient.kg}`}</option>)
+      const selectedIngredientOption = (<option key={i} selected value={selectedIngredient.id}>{`${selectedIngredient.title} - ${selectedIngredient.kg}`}</option>)
       return [selectedIngredientOption, ...ingredients]
     }
 
@@ -62,7 +61,7 @@ export class ManageEventPage extends React.Component {
     const skills = this.props.skills.filter((skill) => !skill.event_id)
       .map((skill, i) => {
         return (
-          <option value={skill.id}>{`${skill.title}`}</option>
+          <option key={i} value={skill.id}>{`${skill.title}`}</option>
         )
       })
 

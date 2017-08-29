@@ -1,15 +1,14 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
-
-import { logoutUser } from '../actions/logout'
+import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
+import {logoutUser} from '../actions/auth'
 
 const Logout = (props) => {
   return (
     <Link to='/'>
-    <button onClick={props.logoutUser}>
-      Logout
-    </button>
+      <button onClick={props.logoutUser}>
+        Logout
+      </button>
     </Link>
   )
 }

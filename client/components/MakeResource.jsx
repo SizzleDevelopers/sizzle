@@ -14,7 +14,8 @@ class MakeResource extends React.Component {
     this.validTypes = ['resource', 'skill', 'location']
   }
   handleChange(e) {
-    this.setState({[e.target.name]: e.target.value})
+    this.setState({
+      [e.target.name]: e.target.value})
   }
   handleSubmit(e) {
     e.preventDefault()
@@ -29,7 +30,7 @@ class MakeResource extends React.Component {
         <h1>Make Resource</h1>
         <div className='form-group'>
           <input type='text' className="form-control" name='title' placeholder='Resource name' value={this.state.title} onChange={this.handleChange.bind(this)}/>
-          <select name='type' onChange={this.handleChange.bind(this)} >
+          <select name='type' onChange={this.handleChange.bind(this)}>
             <option value=''>Select type</option>
             {this.validTypes.map((type, i) => (
               <option key={i} value={type}>{type}</option>
