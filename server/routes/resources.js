@@ -45,9 +45,11 @@ router.put('/:id', (req, res) => {
   const connection = knex
   saveResourceDb.updateResource(connection, resource)
     .then(resources => {
-      res.send(resources)
+      res.sendStatus(204)
     })
     .catch(err => {
+      console.error(err.message)
+      res.sendStatus(500)
     })
 })
 
