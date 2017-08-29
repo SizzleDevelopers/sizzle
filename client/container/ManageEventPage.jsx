@@ -16,7 +16,6 @@ export class ManageEventPage extends React.Component {
     }
   }
 
-
   componentDidMount() {
     this.props.dispatch(getResources())
   }

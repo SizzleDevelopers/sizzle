@@ -1,7 +1,7 @@
-import { LOGOUT_SUCCESS } from '../actions/logout'
-import { REGISTER_REQUEST, REGISTER_FAILURE } from '../actions/register'
-import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE } from '../actions/login'
-import { isAuthenticated, getUserTokenInfo } from '../utils/auth'
+import {LOGOUT_SUCCESS} from '../actions/auth'
+import {REGISTER_REQUEST, REGISTER_FAILURE} from '../actions/register'
+import {LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE} from '../actions/auth'
+import {isAuthenticated, getUserTokenInfo} from '../utils/auth'
 
 const initialState = {
   isFetching: false,
@@ -10,7 +10,7 @@ const initialState = {
   errorMessage: ''
 }
 
-export default function auth (state = initialState, action) {
+export default function auth(state = initialState, action) {
   switch (action.type) {
     case LOGIN_REQUEST:
       return {
