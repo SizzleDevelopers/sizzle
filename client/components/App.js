@@ -21,7 +21,7 @@ const App = () => {
         <Route exact path='/ManageResources' component={ManageResources}/>
         <Route exact path='/event' component={EventPage}/>
         <Route exact path='/eventlist' component={EventList}/>
-        <Route exact path='/manageevent' component={ManageEventPage}/>
+        <Route exact path='/manageevent/:id' component={(props) => <ManageEventPage eventId={props.match.params.id}/> }/>
         <div className='quote'>
           <Navbar />
         </div>
