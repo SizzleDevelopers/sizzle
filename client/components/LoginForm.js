@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {loginUser} from '../actions/auth'
 import ErrorMessage from './ErrorMessage'
+import {ButtonToolbar, Button, Grid, Row, Col} from 'react-bootstrap'
 
 class LoginForm extends Component {
   constructor(props) {
@@ -37,7 +38,9 @@ class LoginForm extends Component {
       <div>
         <p><input name='username' onChange={this.handleChange} placeholder='Username'/></p>
         <p><input type='password' name='password' onChange={this.handleChange} placeholder='Password'/></p>
-        <button onClick={this.handleClick}>Login</button>
+        <ButtonToolbar>
+          <Button onClick={this.handleClick} bsStyle="primary" bsSize="large" className="btn btn-primary">Login</Button>
+        </ButtonToolbar>
         <ErrorMessage reducer='auth'/>
       </div>
     )
