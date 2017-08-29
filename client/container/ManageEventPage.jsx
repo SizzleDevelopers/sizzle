@@ -24,7 +24,7 @@ export class ManageEventPage extends React.Component {
   renderLocationOptions() {
     const unselected = [(<option disabled selected value>Select a location</option>)]
     const locations = this.props.locations.filter((location) => !location.event_id)
-      .map((location) => {
+      .map((location, i) => {
         return (
           <option value={location.id}>{`${location.title}`}</option>
         )
@@ -42,7 +42,7 @@ export class ManageEventPage extends React.Component {
   renderIngredientOptions() {
     const unselected = [(<option disabled selected value>Select an ingredient</option>)]
     const ingredients = this.props.ingredients.filter((ingredient) => !ingredient.event_id)
-      .map((ingredient) => {
+      .map((ingredient, i) => {
         return (
           <option value={ingredient.id}>{`${ingredient.title} - ${ingredient.kg}`}</option>
         )
@@ -60,7 +60,7 @@ export class ManageEventPage extends React.Component {
   renderSkillOptions() {
     const unselected = [(<option disabled selected value>Select a skill</option>)]
     const skills = this.props.skills.filter((skill) => !skill.event_id)
-      .map((skill) => {
+      .map((skill, i) => {
         return (
           <option value={skill.id}>{`${skill.title}`}</option>
         )
@@ -78,17 +78,44 @@ export class ManageEventPage extends React.Component {
   onIngredientChanged(e) {
     const ingredientId = document.getElementById('ingredient').value
     const ingredient = this.props.ingredients.find((i) => i.id == ingredientId)
-    if (ingredient)
-      this.setState({ ingredient: { ...ingredient, event_id: this.props.eventId } })
+    if (ingredient) {
+      const updatedIngredient = { ...ingredient, event_id: this.props.eventId }
+      this.setState({
+        ingredient: updatedIngredient
+      })
+    }
   }
 
   onLocationChanged(e) {
-    const locationOption = document.getElementById('location').value
+    const locationId = document.getElementById('location').value
+    const location = this.props.locations.find((i) => i.id == locationId)
+    if (location) {
+      const updatedLocation = { ...location, event_id: this.props.eventId }
+      this.setState({
+        location: updatedLocation
+      })
+    }
+  }
+
+  onSkillChanged(e) {
+    const skillId = document.getElementById('skill').value
+    const skill = this.props.skills.find((i) => i.id == skillId)
+    if (skill) {
+      const updatedSkill = { ...skill, event_id: this.props.eventId }
+      this.setState({
+        skill: updatedSkill
+      })
+    }
   }
 
   onSubmit(e) {
     e.preventDefault()
-    this.state.ingredient && this.props.dispatch(editResource(this.state.ingredient))
+    this.state.ingredient &&
+      this.props.dispatch(editResource(this.state.ingredient))
+    this.state.location &&
+      this.props.dispatch(editResource(this.state.location))
+    this.state.skill &&
+      this.props.dispatch(editResource(this.state.skill))
   }
 
   render() {
@@ -102,7 +129,7 @@ export class ManageEventPage extends React.Component {
           <select name="ingredient" id="ingredient" onChange={this.onIngredientChanged.bind(this)}>
             {this.renderIngredientOptions()}
           </select>
-          <select name="skill" id="">
+          <select name="skill" id="skill" onChange={this.onSkillChanged.bind(this)}>
             {this.renderSkillOptions()}
           </select>
           <button type='submit'>Save</button>
@@ -120,8 +147,8 @@ export class ManageEventPage extends React.Component {
 function mapStateToProps(state) {
   return {
     ingredients: state.resources.filter((resource) => resource.type == 'ingredient'),
-    locations: state.resources.filter((resource) => resource.type == 'locations'),
-    skills: state.resources.filter((resource) => resource.type == 'skills'),
+    locations: state.resources.filter((resource) => resource.type == 'location'),
+    skills: state.resources.filter((resource) => resource.type == 'skill'),
   }
 }
 
