@@ -32,7 +32,7 @@ const saveResources = (db, resource) => {
 }
 
 const updateResource = (db, resource) => {
-  return db('resources').update(resource)
+  return db('resources').where('id', resource.id).update(resource)
 }
 
 const saveSkills = (db) => {
