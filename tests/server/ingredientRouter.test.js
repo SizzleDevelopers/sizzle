@@ -1,15 +1,15 @@
 const test = require('ava')
 const request = require('supertest')
-const app = require('../../server/server')
-const setupDb = require('./setup-db')
+const createServer = require('../../server/server')
+const setupDb = require('./setup-db-auth')
 
 
-setupDb(test, app)
+setupDb(test, createServer)
 
-test.cb('Authenticate complains about no credentials', t => {
+test.cb('GET /ingredients works', t => {
   request(t.context.app)
     .get('/api/v1/ingredients')
-    .send({})
+    .set('Authorization', `Bearer ${t.context.token}`)
     .expect(200)
     .end((err, res) => {
       t.ifError(err)
