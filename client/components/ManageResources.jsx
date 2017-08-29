@@ -16,7 +16,6 @@ export class ManageResources extends React.Component {
   onDeleteLinkClicked(e) {
     const resource = this.props.resources.find((resource) => resource.id == e.target.id)
     this.props.dispatch(deleteResource(resource))
-    this.props.dispatch(getResources())
   }
 
   render() {

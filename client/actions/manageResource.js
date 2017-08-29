@@ -21,7 +21,7 @@ export function getResources() {
    return (dispatch) => {
      request('delete',`/resources/${resource.id}`)
      .then(res => {
-    //    dispatch(delResource(res.body.id))
+       dispatch(delResource(resource.id))
      })
      .catch(err => console.error(err))
    }
