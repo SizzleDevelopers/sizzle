@@ -2,10 +2,21 @@ import React from 'react'
 import {Grid, Row, Col, Input, Button} from 'react-bootstrap'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
+import { getResources } from '../actions/manageResource'
+import {deleteResource} from '../actions/manageResource'
 
 export class ManageResources extends React.Component {
   constructor(props) {
     super(props)
+  }
+
+  componentDidMount() {
+    this.props.dispatch(getResources())
+  }
+  onDeleteLinkClicked(e) {
+    const resource = this.props.resources.find((resource) => resource.id == e.target.id)
+    this.props.dispatch(deleteResource(resource))
+    this.props.dispatch(getResources())
   }
 
   render() {
@@ -27,7 +38,8 @@ export class ManageResources extends React.Component {
                   <h1>{resource.title}</h1>
                 </Row>
                 <Row>
-                  <h1>{resource.type}</h1>
+                  <p>{resource.type}</p>
+                  <a id={resource.id} onClick={this.onDeleteLinkClicked.bind(this)}>Delete</a>
                 </Row>
               </div>
             )

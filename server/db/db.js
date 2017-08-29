@@ -17,6 +17,10 @@ const getLocations = (db) => {
   return db('locations')
   .select('*')
 }
+const getResources = (db) => {
+  return db('resources')
+  .select('*')
+}
 
 const saveIngredients = (db, ingredient) => {
   return db('ingredients')
@@ -48,6 +52,9 @@ const getEvents = (db) => {
 const getEventById = (db, id) => {
   return db('events').where('id', id).first()
 }
+const getResourceById = (db, id) => {
+  return db('resources').where('id', id).first()
+}
 
 const saveEvent = (db, event) => {
   return db('events').insert(event)
@@ -55,6 +62,9 @@ const saveEvent = (db, event) => {
 
 const delEvent = (db, id) => {
   return getEventById(db, id).del()
+}
+const deleteResource = (db, id) => {
+  return getResourceById(db, id).del()
 }
 
 module.exports = {
@@ -65,9 +75,12 @@ module.exports = {
   saveLocations,
   saveResources,
   updateResource,
+  getResources,
+  getResourceById,
   getLocations,
   getEvents,
   getEventById,
   saveEvent,
-  delEvent
+  delEvent,
+  deleteResource
 }
