@@ -1,5 +1,14 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {
+  DropdownButton,
+  ButtonToolbar,
+  Button,
+  Grid,
+  Row,
+  Col,
+  MenuItem
+} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
 import {postResource} from '../actions/resources'
 
@@ -9,15 +18,22 @@ class MakeResource extends React.Component {
     super(props)
     this.state = {
       title: '',
-      type: ''
+      type: null
     }
     this.validTypes = ['resource', 'skill', 'location']
   }
   handleChange(e) {
+    console.log(e.target.value);
     this.setState({
-      [e.target.name]: e.target.value})
+      [e.target.name]: e.target.value
+    })
+  }
+  handleDropdownChange(value) {
+    console.log({value});
+    this.setState({type: value})
   }
   handleSubmit(e) {
+    console.log(this.state);
     e.preventDefault()
     this.props.dispatch(postResource(this.state, () => {
       this.props.history.push('/eventlist')
@@ -26,21 +42,31 @@ class MakeResource extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>Make Resource</h1>
-        <div className='form-group'>
-          <input type='text' className="form-control" name='title' placeholder='Resource name' value={this.state.title} onChange={this.handleChange.bind(this)}/>
-          <select name='type' onChange={this.handleChange.bind(this)}>
-            <option value=''>Select type</option>
-            {this.validTypes.map((type, i) => (
-              <option key={i} value={type}>{type}</option>
-            ))}
-          </select>
-          <button onClick={this.handleSubmit.bind(this)}>Save</button>
-        </div>
-        <Link to='/MainPage'>
-          <button type="button" className="btn btn-primary">Home</button>
-        </Link>
+      <div className='makeResourcePage'>
+        <Grid>
+          <h1>Make Resource</h1>
+          <Row className='makeResourceButtons'>
+            <Col className="pageNav-col" sm={6} md={4} lg={6}>
+              <div className='form-group'>
+                <input type='text' className="form-control" name='title' placeholder='Resource name' value={this.state.title} onChange={this.handleChange.bind(this)}/>
+              <ButtonToolbar>
+                <DropdownButton name='type' className="form-control" name='title' placeholder='Resource name' title={this.state.type || "Resource Type"} onChange={this.handleChange.bind(this)}>
+                  {this.validTypes.map((type, i) => (
+                    <MenuItem eventKey={i} key={i} onClick={() => this.handleDropdownChange(type)} value={type}>{type}</MenuItem>
+                  ))}
+                </DropdownButton>
+                  <Button  onClick={this.handleSubmit.bind(this)}  className="btn btn-primary">Save</Button>
+                </ButtonToolbar>
+              </div>
+            </Col>
+          </Row>
+
+          <Link to='/MainPage'>
+            <ButtonToolbar>
+              <Button bsStyle="primary" bsSize="large" className="btn btn-primary">Home</Button>
+            </ButtonToolbar>
+          </Link>
+        </Grid>
       </div>
     )
   }
