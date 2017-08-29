@@ -23,8 +23,12 @@ const saveIngredients = (db, ingredient) => {
   .insert(ingredients)
 }
 const saveResources = (db, resource) => {
-  return db('resource')
+  return db('resources')
   .insert(resource)
+}
+
+const updateResource = (db, resource) => {
+  return db('resources').update(resource)
 }
 
 const saveSkills = (db) => {
@@ -60,6 +64,7 @@ module.exports = {
   saveSkills,
   saveLocations,
   saveResources,
+  updateResource,
   getLocations,
   getEvents,
   getEventById,

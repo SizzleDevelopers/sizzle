@@ -26,5 +26,17 @@ router.post('/', (req, res) => {
 })
 
 
+router.put('/:id', (req, res) => {
+  const resource = req.body
+  const connection = knex
+  saveResourceDb.updateResource(connection, resource)
+    .then(resources => {
+      res.send(resources)
+    })
+    .catch(err => {
+    })
+})
+
+
 
 module.exports = router
