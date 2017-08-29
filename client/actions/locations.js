@@ -4,7 +4,7 @@ export const receiveLocations = (locations) => {
   return {type: 'GET_LOCATIONS', locations}
 }
 
-export function getIngredients() {
+export function getLocations() {
   return (dispatch) => {
     request('get','/locations')
     .then(res => {

@@ -1,25 +1,30 @@
 import React from 'react'
-import Navbar from './Navbar'
-import Quote from './Quote'
-import Logo from './Logo'
-import Info from './Info'
-import DataEntryPage from '../container/DataEntryPage'
 import {HashRouter as Router, Route} from 'react-router-dom'
-// import DataEntryPage from './DataEntryPage'
+
+import Navbar from '../components/Navbar'
+import LoginPage from '../container/LoginPage'
+import MainPage from './MainPage'
+import MakeResource from './MakeResource'
+
+import EventPage from '../container/EventPage'
+import EventList from '../container/EventList'
+import ManageResources from './ManageResources'
+import ManageEventPage from '../container/ManageEventPage'
 
 const App = () => {
   return (
     <Router>
-
       <div>
-        <Route exact path='/data' component={DataEntryPage}/>
-        <Logo/>
-        <Info/>
-        <Navbar/>
+        <Route exact path='/' component={LoginPage}/>
+        <Route exact path='/MainPage' component={MainPage}/>
+        <Route exact path='/MakeResource' component={MakeResource}/>
+        <Route exact path='/ManageResources' component={ManageResources}/>
+        <Route exact path='/event' component={EventPage}/>
+        <Route exact path='/eventlist' component={EventList}/>
+        <Route exact path='/manageevent/:id' component={(props) => <ManageEventPage eventId={props.match.params.id}/> }/>
         <div className='quote'>
-          <Quote/>
+          <Navbar />
         </div>
-
       </div>
       </Router>
   )

@@ -1,51 +1,61 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
-import {getLocation} from '../actions/locations'
+import {getLocations} from '../actions/locations'
 
 class Locations extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      search: ''
+      search: '',
+      showOptions: false
     }
   }
   componentDidMount() {
-    this.props.dispatch(getLocation())
+    this.props.dispatch(getLocations())
   }
   selectLocation(location) {
     this.setState({search: location})
   }
   updateSearch(e) {
-    this.setState({[e.target.name]: e.target.value})
+    let showOptions = true
+    if (e.target.value.length != 0) showOptions =  false
+
+    this.setState({[e.target.name]: e.target.value, showOptions})
+  }
+  toggleShowOptions(e) {
+    this.setState({showOptions: !this.state.showOptions, search: ''})
   }
 
-    //e.preventDefault()
-
 render() {
-  let {search} = this.state
+  let {search, showOptions} = this.state
   let {locations} = this.props
-  // let locations = [
-  //   {location: 'Meat'}
-  // ]
 
+  const filterFunction = (location) => {
+    let {facility, address} = location
+    return ((address.toLowerCase().includes(search.toLowerCase()) && address != search) || facility.toLowerCase().includes(search.toLowerCase()))
+  }
+  let filteredLocations = locations.filter(filterFunction)
 
-  let filteredLocations =  locations.filter(({location}) => location.toLowerCase().includes(search.toLowerCase()) && location != search)
   return (
     <div className='form-group'>
-        <input type='text' className="form-control" name='search' value={search} onChange={this.updateSearch.bind(this)}/>
-        {((filteredLocations.length != 0 && filteredLocations.length != locations.length)|| locations.find(({location}) => location == search))
-        && filteredLocations.map(({location}, i) => (
-          <p onClick={() => this.selectLocation(location)} key={i}>{location}</p>
-        ))
-      }
+      <input type='text' className="form-control" name='search' placeholder='location' value={search} onChange={this.updateSearch.bind(this)}/>
+      <button onClick={this.toggleShowOptions.bind(this)}>{showOptions ? 'Hide' : 'Show'}</button>
+        {(showOptions || (search.length != 0 && !locations.find(({location}) => location == search)))
+        &&
+        <div className="locationSearchResults" style={{height: '15vh', overflow: 'scroll'}}>
+
+        {filteredLocations.map((location, i) => (
+          <p onClick={() => this.selectLocation(location.address)} key={i}>{location.facility} @ {location.address}</p>
+        ))}
+        </div>
+        }
       <Link to="/">Go Home</Link>
     </div>
   )
  }
 }
 function matchStateToProps(state) {
-
   return {locations: state.locations}
 }
 

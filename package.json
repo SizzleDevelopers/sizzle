@@ -1,7 +1,7 @@
 {
-  "name": "boilerplate-local-jwt-auth",
-  "version": "0.1.1",
-  "description": "Local Passport strategy boilerplate using libsodium and JWTs",
+  "name": "Sizzle",
+  "version": "0.0.1",
+  "description": "Resource sharing website to reduce waste",
   "main": "server/index.js",
   "scripts": {
     "dev": "nodemon --watch server & webpack --watch",
@@ -10,17 +10,17 @@
     "migrate:prod": "knex migrate:latest",
     "postinstall": "webpack && npm run migrate",
     "start": "node server",
-    "test": "ava",
-    "test:watch": "ava --watch"
+    "test": "ava --v",
+    "test:watch": "ava --v --watch"
   },
-  "author": "EDA",
-  "license": "ISC",
+  "author": "SizzleDevelopers",
+  "license": "MIT",
   "dependencies": {
-    "babel-core": "^6.13.2",
-    "babel-loader": "^6.2.4",
-    "babel-preset-es2015": "^6.18.0",
-    "babel-preset-react": "^6.16.0",
-    "babel-preset-stage-3": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^6.4.1",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
     "body-parser": "^1.16.0",
     "connect-ensure-login": "^0.1.1",
     "connect-flash": "^0.1.1",
@@ -37,6 +37,8 @@
     "express-jwt": "^5.1.0",
     "express-session": "^1.15.0",
     "jsonwebtoken": "^7.4.1",
+    "jsx-loader": "^0.13.2",
+    "jump.js": "^1.0.2",
     "jwt-decode": "^2.2.0",
     "knex": "^0.12.6",
     "passport": "^0.3.2",
@@ -44,9 +46,10 @@
     "pg": "^7.2.0",
     "react": "^15.3.0",
     "react-bootstrap": "^0.31.2",
-    "react-dom": "^15.3.0",
-    "react-redux": "^4.4.5",
+    "react-dom": "^15.5.4",
+    "react-redux": "^5.0.5",
     "react-router-dom": "^4.1.1",
+    "react-test-renderer": "^15.5.4",
     "redux": "^3.5.2",
     "redux-thunk": "^2.2.0",
     "sodium": "^2.0.1",
@@ -55,22 +58,27 @@
     "webpack-livereload-plugin": "^0.11.0"
   },
   "devDependencies": {
-    "ava": "^0.17.0",
-    "enzyme": "^2.9.1",
+    "ava": "^0.19.1",
+    "babel-polyfill": "^6.26.0",
+    "babel-register": "^6.24.1",
+    "enzyme": "^2.8.2",
+    "jsdom": "^11.0.0",
     "nodemon": "^1.11.0",
     "sqlite3": "^3.1.8",
     "supertest": "^2.0.1"
   },
   "ava": {
     "require": [
-      "dotenv/config"
-    ]
+      "dotenv/config",
+      "babel-register"
+    ],
+    "babel": "inherit"
   },
   "babel": {
     "presets": [
-      "es2015",
+      "env",
       "react",
-      "stage-3"
+      "stage-0"
     ]
   },
   "engines": {

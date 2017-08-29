@@ -1,9 +1,14 @@
 /* eslint no-console: "off" */
 require('dotenv').config()
+var createServer = require('./server')
 
-const app = require('./server')
-const port = process.env.PORT || 3000
+var Knex = require('knex')
+var config = require('../knexfile')[process.env.NODE_ENV || 'development']
+var knex = Knex(config)
 
-app.listen(port, () => {
-  console.log('Server listening on port', port)
+var server = createServer(knex)
+var PORT = process.env.PORT || 3000
+
+server.listen(PORT, function () {
+  console.log('Listening on port', PORT)
 })
