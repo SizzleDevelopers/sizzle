@@ -28,7 +28,9 @@ class LoginForm extends Component {
       username: username.trim(),
       password: password.trim()
     }
-    this.props.loginUser(creds)
+    this.props.loginUser(creds, () => {
+        this.props.history.push('/MainPage')
+    })
   }
 
   render () {
@@ -45,8 +47,8 @@ class LoginForm extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    loginUser: creds => {
-      return dispatch(loginUser(creds))
+    loginUser: (creds, callback) => {
+      return dispatch(loginUser(creds, callback))
     }
   }
 }

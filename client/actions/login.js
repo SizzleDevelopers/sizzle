@@ -33,7 +33,7 @@ function loginError (message) {
 
 // Calls the API to get a token and
 // dispatches actions along the way
-export function loginUser (creds) {
+export function loginUser (creds, callback) {
   return dispatch => {
     // We dispatch requestLogin to kickoff the call to the API
     dispatch(requestLogin(creds))
@@ -48,9 +48,11 @@ export function loginUser (creds) {
         } else {
           // If login was successful, set the token in local storage
           const userInfo = saveUserToken(response.body.token)
+          console.log(userInfo);
           // Dispatch the success action
           dispatch(receiveLogin(userInfo))
+          callback()
         }
-      }).catch(err => dispatch(loginError(err.response.body.message)))
+      }).catch(err => dispatch(loginError(err.message)))
   }
 }

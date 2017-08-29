@@ -23,9 +23,12 @@ componentDidMount() {
         <Logo />
         <Grid>
           <h2>Events</h2>
-          {this.props.events.map((event) =>
-            <Event event={event} />
+          {this.props.events.map((event, i) =>
+            <Event key={i} event={event} />
           )}
+          <Link to='/MainPage'>
+            <button type="button" className="btn btn-primary">Home</button>
+          </Link>
         </Grid>
       </div>
     )

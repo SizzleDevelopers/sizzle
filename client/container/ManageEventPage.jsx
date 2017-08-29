@@ -132,10 +132,11 @@ export class ManageEventPage extends React.Component {
           <select name="skill" id="skill" onChange={this.onSkillChanged.bind(this)}>
             {this.renderSkillOptions()}
           </select>
+          <Link to='/EventList'>
           <button type='submit'>Save</button>
+          </Link>
         </form>
-
-        <Link to='/'>
+        <Link to='/MainPage'>
           <button type="button" className="btn btn-primary">Home</button>
         </Link>
       </div>
