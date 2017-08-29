@@ -13,3 +13,13 @@ export function postResource(resource) {
 
   }
 }
+
+export const editResource = (resource) => {
+  return (dispatch) => {
+    request('post',`/resources/${resource.}`, resource)
+    .then(res => {
+    })
+    .catch(err => console.error(err))
+
+  }
+}

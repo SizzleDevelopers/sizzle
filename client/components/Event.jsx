@@ -1,8 +1,10 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import { Grid, Row, Col, Input, Container } from 'react-bootstrap'
+import { removeEvent } from '../actions/events'
 
 
-export default class Event extends React.Component {
+export class Event extends React.Component {
   constructor(props) {
     super(props)
   }
@@ -21,7 +23,10 @@ export default class Event extends React.Component {
         </div>
         {'     '}
         <a onClick={this.onDeleteLinkClicked.bind(this)}>Delete</a>
+          {'     '}
+          <a href={`/#/manageevent/${event.id}`}>Manage</a>
       </Row>
     )
   }
 }
+export default connect()(Event)
