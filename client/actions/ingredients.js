@@ -6,11 +6,9 @@ export const receiveIngredients = (ingredients) => {
 
 export function getIngredients() {
   return (dispatch) => {
-    request('get','/ingredients')
-    .then(res => {
+    request('get', '/ingredients').then(res => {
       dispatch(receiveIngredients(res.body))
-    })
-    .catch(err => console.error(err))
+    }).catch(err => console.error(err))
 
   }
 }

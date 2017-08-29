@@ -1,6 +1,5 @@
 const getIngredients = (db) => {
-  return db('ingredients')
-  .select('*')
+  return db('ingredients').select('*')
 }
 
 const getIngredientsByUser = (db, user) => {

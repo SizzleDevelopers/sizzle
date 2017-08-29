@@ -36,7 +36,7 @@ export function removeEvent(event) {
   return (dispatch) => {
     request('delete',`/events/${event.id}`, event)
     .then(res => {
-      dispatch(removeEvent(res.body))
+      dispatch(deleteEvent(res.body))
     })
     .catch(err => console.error(err))
   }

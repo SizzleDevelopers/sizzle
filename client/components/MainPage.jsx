@@ -3,7 +3,6 @@ import {ButtonToolbar, Button, Grid, Row, Col} from 'react-bootstrap'
 import Logo from "./Logo"
 import jump from 'jump.js'
 import ReactDOM from 'react-dom'
-
 import {Link} from 'react-router-dom'
 import MakeResource from './MakeResource'
 
