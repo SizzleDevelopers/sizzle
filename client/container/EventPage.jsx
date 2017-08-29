@@ -73,9 +73,6 @@ export class EventPage extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    ingredients: state.ingredients,
-    locations: state.locations,
-    skills: state.skills,
     user: state.auth.user
   }
 
