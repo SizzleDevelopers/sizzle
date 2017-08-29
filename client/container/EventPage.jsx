@@ -75,5 +75,6 @@ function mapStateToProps(state) {
   return {
     user: state.auth.user
   }
+}
 
 export default connect(mapStateToProps)(EventPage)
