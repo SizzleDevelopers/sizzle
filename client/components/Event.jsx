@@ -23,8 +23,8 @@ export class Event extends React.Component {
         </div>
         {'     '}
         <a onClick={this.onDeleteLinkClicked.bind(this)}>Delete</a>
-          {'     '}
-          <a href={`/#/manageevent/${event.id}`}>Manage</a>
+        {'     '}
+        <a href={`/#/manageevent/${event.id}`}>Manage</a>
       </Row>
     )
   }
