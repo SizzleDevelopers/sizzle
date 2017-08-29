@@ -7,7 +7,7 @@ import Logout from './Logout'
 import LoginForm from './LoginForm'
 import RegisterForm from './RegisterForm'
 
-const Navbar = ({ isAuthenticated }) => {
+const Navbar = ({ isAuthenticated, history }) => {
   return (
     <nav>
       <div>
@@ -20,7 +20,7 @@ const Navbar = ({ isAuthenticated }) => {
               <Route path='/login' render={() => (
                 <div>
                   <Links active='Login' />
-                  <LoginForm />
+                  <LoginForm history={history}/>
                 </div>
               )} />
               <Route path='/register' render={() => (

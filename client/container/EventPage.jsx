@@ -20,8 +20,8 @@ export class EventPage extends React.Component {
 
   onChange(e) {
     let value = e.target.value
-    if (e.target.name === 'date') 
-      value = new Date(value) 
+    if (e.target.name === 'date')
+      value = new Date(value)
 
     this.setState({ [e.target.name]: value })
   }
@@ -56,7 +56,7 @@ export class EventPage extends React.Component {
           </Row>
           </form>
           <Row>
-            <Link to='/'>
+            <Link to='/MainPage'>
               <button type="button" className="btn btn-primary">Home</button>
             </Link>
           </Row>
@@ -74,4 +74,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(EventPage) 
+export default connect(mapStateToProps)(EventPage)

@@ -26,6 +26,9 @@ componentDidMount() {
           {this.props.events.map((event) =>
             <Event event={event} />
           )}
+          <Link to='/MainPage'>
+            <button type="button" className="btn btn-primary">Home</button>
+          </Link>
         </Grid>
       </div>
     )

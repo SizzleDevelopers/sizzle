@@ -108,7 +108,7 @@ export class ManageEventPage extends React.Component {
           <button type='submit'>Save</button>
         </form>
 
-        <Link to='/'>
+        <Link to='/MainPage'>
           <button type="button" className="btn btn-primary">Home</button>
         </Link>
       </div>

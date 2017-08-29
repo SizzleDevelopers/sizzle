@@ -18,6 +18,5 @@ export const editResource = (resource) => {
     .then(res => {
     })
     .catch(err => console.error(err))
-
   }
 }
