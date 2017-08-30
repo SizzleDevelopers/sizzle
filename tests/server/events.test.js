@@ -32,7 +32,6 @@ test('POST /events works', async t => {
     date: (new Date()).getTime() / 1000,
     is_am: 1
   }
-  newEvent.id = 4
 
   const res = await request(t.context.app)
     .post('/api/v1/events')
@@ -44,6 +43,6 @@ test('POST /events works', async t => {
 
 
   const events = await getEvents(t.context.db)
-  t.is(events.length, 4, 'event not saved to db')
-  t.deepEqual(events[events.length - 1], newEvent, 'event content corrupt in db')
+  t.is(events.length, 6, 'event not saved to db')
+  t.deepEqual(events[events.length - 1], {...newEvent, id: 6}, 'event content corrupt in db')
 })

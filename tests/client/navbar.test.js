@@ -19,6 +19,6 @@ test('Navbar showing', t => {
     </Provider>
   )
 
-  t.is(wrapper.find('div').length, 7)
+  t.is(wrapper.find('div').length, 5)
   t.is(wrapper.find('Links').exists(), true)
 })

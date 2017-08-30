@@ -11,7 +11,7 @@ setupDb(test,createServer)
 test.cb('read resources db', t => {
   db.getResources(t.context.db)
     .then(resources => {
-      t.is(resources.length, 3)
+      t.is(resources.length, 6)
       t.true(resources[0].hasOwnProperty('type'))
       t.end()
     })
