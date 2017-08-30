@@ -1,5 +1,7 @@
-.logoPage {
+.logoPage img {
   padding-top: 20px;
+  width: 90px;
+  height: 110px;
 }
 .Info {
   margin-top: 40%;
