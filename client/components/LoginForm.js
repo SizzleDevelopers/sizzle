@@ -36,12 +36,20 @@ class LoginForm extends Component {
   render() {
     return (
       <div>
-        <p><input name='username' onChange={this.handleChange} placeholder='Username'/></p>
-        <p><input type='password' name='password' onChange={this.handleChange} placeholder='Password'/></p>
-        <ButtonToolbar>
-          <Button onClick={this.handleClick} bsStyle="primary" bsSize="large" className="btn btn-primary">Login</Button>
-        </ButtonToolbar>
-        <ErrorMessage reducer='auth'/>
+        <Grid>
+          <Row className='loginForm'>
+            <Col xs={1} md={4}></Col>
+            <Col xs={4} md={4}>
+              <p><input name='username' onChange={this.handleChange} placeholder='Username'/></p>
+              <p><input type='password' name='password' onChange={this.handleChange} placeholder='Password'/></p>
+              <ButtonToolbar>
+                <Button onClick={this.handleClick} bsStyle="primary" bsSize="large" className="btn btn-primary">Login</Button>
+              </ButtonToolbar>
+              <ErrorMessage reducer='auth'/>
+            </Col>
+            <Col xs={1} md={4}></Col>
+          </Row>
+        </Grid>
       </div>
     )
   }

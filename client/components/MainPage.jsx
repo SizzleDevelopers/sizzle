@@ -10,44 +10,53 @@ export default function MainPage() {
   return (
     <div className='mainPageButtons' id='mainPageButtons'>
       <Logo/>
-        <Grid>
-          <Row className='makeEventButton'>
-            <Col className="pageNav-col" sm={6} md={4} lg={6}>
-              <Link to='/event'>
-                <ButtonToolbar>
-                  <Button bsStyle="primary" bsSize="large" className="btn btn-primary">Make Event</Button>
-                </ButtonToolbar>
-              </Link>
-            </Col>
-          </Row>
-          <Row className='manageEventButton'>
-            <Col className="pageNav-col" sm={6} md={4} lg={6}>
-              <Link to='/eventlist'>
-                <ButtonToolbar>
-                  <Button bsStyle="primary" bsSize="large" className="btn btn-primary">Manage Event</Button>
-                </ButtonToolbar>
-              </Link>
-            </Col>
-          </Row>
-          <Row className='makeResourceButton'>
-            <Col className="pageNav-col" sm={6} md={4} lg={6}>
-              <Link to='/makeResource'>
-                <ButtonToolbar>
-                  <Button bsStyle="primary" bsSize="large" className="btn btn-primary">Make Resource</Button>
-                </ButtonToolbar>
-              </Link>
-            </Col>
-          </Row>
-          <Row className='manageResourcesButton'>
-            <Col className="pageNav-col" sm={6} md={4} lg={6}>
-              <Link to='/manageResources'>
-                <ButtonToolbar>
-                  <Button bsStyle="primary" bsSize="large" className="btn btn-primary">Manage Resource</Button>
-                </ButtonToolbar>
-              </Link>
-            </Col>
-          </Row>
-        </Grid>
+      <Grid style={{marginTop:'40px'}}>
+        <Row className='makeEventButton'>
+          <Col className="pageNav-col" sm={6} md={4} lg={6}>
+            <Link to='/event'>
+              <ButtonToolbar>
+                <Button bsStyle="primary" bsSize="large" className="btn btn-primary">Make Event</Button>
+              </ButtonToolbar>
+            </Link>
+          </Col>
+        </Row>
+        <div>
+          <br></br>
+        </div>
+        <Row className='manageEventButton'>
+          <Col className="pageNav-col" sm={6} md={4} lg={6}>
+            <Link to='/eventlist'>
+              <ButtonToolbar>
+                <Button bsStyle="primary" bsSize="large" className="btn btn-primary">Manage Event</Button>
+              </ButtonToolbar>
+            </Link>
+          </Col>
+        </Row>
+        <div>
+          <br></br>
+        </div>
+        <Row className='makeResourceButton'>
+          <Col className="pageNav-col" sm={6} md={4} lg={6}>
+            <Link to='/makeResource'>
+              <ButtonToolbar>
+                <Button bsStyle="primary" bsSize="large" className="btn btn-primary">Make Resource</Button>
+              </ButtonToolbar>
+            </Link>
+          </Col>
+        </Row>
+        <div>
+          <br></br>
+        </div>
+        <Row className='manageResourcesButton'>
+          <Col className="pageNav-col" sm={6} md={4} lg={6}>
+            <Link to='/manageResources'>
+              <ButtonToolbar>
+                <Button bsStyle="primary" bsSize="large" className="btn btn-primary">Manage Resource</Button>
+              </ButtonToolbar>
+            </Link>
+          </Col>
+        </Row>
+      </Grid>
     </div>
   )
 }

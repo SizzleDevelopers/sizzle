@@ -7,11 +7,13 @@ const Links = ({active}) => {
     <div>
       <Grid>
         <Row>
+          <Col xs={4} md={4}>
           {active === 'Register'
             ? 'Register'
             : <Link to='/register'>Register</Link>}| {active === 'Login'
             ? 'Login'
             : <Link to='/login'>Login</Link>}
+          </Col>
         </Row>
       </Grid>
     </div>
