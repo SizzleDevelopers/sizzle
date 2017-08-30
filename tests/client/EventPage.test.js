@@ -15,7 +15,6 @@ test('EventPage showing', t => {
     <EventPage />
     </Provider>
   </Router>
-
   )
-  t.is(wrapper.find('h1').text(), 'Logo')
+  t.is(wrapper.find('h2').text(), 'Start a sizzle')
 })
