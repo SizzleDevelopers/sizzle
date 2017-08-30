@@ -7,5 +7,5 @@ import Info from '../../client/components/Info'
 
 test('Info showing', t => {
   const wrapper = shallow(<Info />)
-  t.is(wrapper.find('h1').text(), 'Info')
+  t.is(wrapper.find('h1').text(), 'Sizzle')
 })
