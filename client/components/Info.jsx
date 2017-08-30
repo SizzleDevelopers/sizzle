@@ -12,32 +12,9 @@ const Info = () => {
           <Col xs={1} md={4}></Col>
           <Col xs={4} md={4}>
             <p>Sizzle was created with the aim of encouraging people not to waste food and make it an action where you provide some resource between food, skill or a kitchen to prepare the food that is made available.</p>
-          </Col>
-          <Col xs={1} md={4}></Col>
-
-          <Col xs={1} md={4}></Col>
-          <Col xs={4} md={4}>
             <p>You can choose to create an event and offer a resource or you can choose from existing events and join them and offer the resource you have available.</p>
-          </Col>
-          <Col xs={1} md={4}></Col>
-        </Row>
-
-        <Row>
-          <Col xs={1} md={4}></Col>
-          <Col xs={4} md={4}>
             <p>You and your event mates will decide how to divide the final product, you can choose between consuming, donating to some institution, selling, it will really be up to you and your mates.</p>
-          </Col>
-          <Col xs={1} md={4}></Col>
-
-          <Col xs={1} md={4}></Col>
-          <Col xs={4} md={4}>
             <p>We are grateful for your help in avoiding food waste, thank you.</p>
-          </Col>
-          <Col xs={1} md={4}></Col>
-        </Row>
-        <Row>
-          <Col xs={1} md={4}></Col>
-          <Col xs={1} md={8}>
             <p>Love,</p>
             <p>Team Sizzle.</p>
           </Col>

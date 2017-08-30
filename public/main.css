@@ -15,3 +15,7 @@ h1 {
 .event {
   margin: 1rem auto;
 }
+
+.makeEventButton {
+  justify-content: center;
+}

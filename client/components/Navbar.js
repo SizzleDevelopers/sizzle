@@ -10,8 +10,7 @@ import RegisterForm from './RegisterForm'
 const Navbar = ({isAuthenticated, history}) => {
   return (
     <nav>
-
-        <Grid style={{marginLeft: '600px'}}>
+        <Grid style={{marginLeft: '800px', marginTop: '40px'}}>
           {!isAuthenticated && (
             <Row>
               <Col className="pageNav-col" sm={6} md={4} lg={6}>
@@ -34,7 +33,6 @@ const Navbar = ({isAuthenticated, history}) => {
           {isAuthenticated && <Logout/>
 }
         </Grid>
-        
     </nav>
   )
 }
