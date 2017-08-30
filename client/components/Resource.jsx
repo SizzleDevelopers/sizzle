@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Grid, Row, Col, Input, Panel, Button } from 'react-bootstrap'
-import { removeEvent } from '../actions/events'
+import { Grid, Row, Col, Panel, Button } from 'react-bootstrap'
+import { deleteResource } from '../actions/manageResource'
 
 
 export class Event extends React.Component {
@@ -9,27 +9,22 @@ export class Event extends React.Component {
     super(props)
   }
 
-  onDeleteLinkClicked() {
-    this.props.dispatch(removeEvent(this.props.event))
-  }
-
-  onRedirect(e) {
-    window.location = `/#/manageevent/${this.props.event.id}`
+  onDeleteLinkClicked(e) {
+    this.props.dispatch(deleteResource(this.props.resource))
   }
 
   render() {
-    let event = this.props.event
+    let resource = this.props.resource
     return (
       <Row>
         <Panel className='event'>
           <Grid>
-            <h3>{event.title}</h3>
-            <p>{event.description}</p>
+            <h3>{resource.title}</h3>
+            <p><i>{resource.type}</i></p>
             <Row>
               <div className='text-right'>
                 <Col>
                   <Button style={{ marginRight: '3rem' }} bsStyle='danger' onClick={this.onDeleteLinkClicked.bind(this)}>Delete</Button>
-                  <Button style={{marginRight: '3rem'}} bsStyle='success' onClick={this.onRedirect.bind(this)}>Manage</Button>
                 </Col>
               </div>
             </Row>
@@ -39,5 +34,5 @@ export class Event extends React.Component {
     )
   }
 }
-
 export default connect()(Event)
+

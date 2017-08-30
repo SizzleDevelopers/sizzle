@@ -17,7 +17,7 @@ export class EventList extends React.Component {
 
   render() {
     return (
-      <div className='events'>
+      <div className='manage-events'>
         <Logo/>
         <Grid>
           <h2>Events</h2>
