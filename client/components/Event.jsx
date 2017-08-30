@@ -14,7 +14,7 @@ export class Event extends React.Component {
   }
 
   onRedirect(e) {
-    this.props.history.push(`/#/manageevent/${this.props.event.id}`)
+    window.location = `/#/manageevent/${this.props.event.id}`
   }
 
   render() {
@@ -39,4 +39,5 @@ export class Event extends React.Component {
     )
   }
 }
+
 export default connect()(Event)
