@@ -152,13 +152,21 @@ export class ManageEventPage extends React.Component {
                   {this.renderSkillOptions()}
                 </FormControl>
               </FormGroup>
-              <button type='button' onClick={this.onSubmit.bind(this)}>Save</button>
             </Col>
+            <Row>
+              <Col xs={8} xsOffset={2}>
+                <Button type='button' onClick={this.onSubmit.bind(this)} style={{ marginTop: '2rem' }}>Save</Button>
+              </Col>
+            </Row>
+            <Row>
+              <Col xs={8} xsOffset={2}>
+                <Link to='/MainPage'>
+                  <Button type="button" className="btn btn-primary" style={{ marginTop: '2rem' }}>Home</Button>
+                </Link>
+              </Col>
+            </Row>
           </Grid>
         </form>
-        <Link to='/MainPage'>
-          <button type="button" className="btn btn-primary">Home</button>
-        </Link>
       </div>
     )
   }
