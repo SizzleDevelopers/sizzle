@@ -8,33 +8,28 @@ import LoginForm from './LoginForm'
 import RegisterForm from './RegisterForm'
 
 const Navbar = ({isAuthenticated, history}) => {
-  return (
-    <nav>
-        <Grid style={{marginLeft: '800px', marginTop: '40px'}}>
-          {!isAuthenticated && (
-            <Row>
-              <Col className="pageNav-col" sm={6} md={4} lg={6}>
-              <Route exact path='/' render={() => (<Links active='Home'/>)}/>
-              <Route path='/login' render={() => (
-                <div style={{marginLeft: '100px'}}>
-                  <Links active='Login'/>
-                  <LoginForm history={history}/>
-                </div>
-              )}/>
-              <Route path='/register' render={() => (
-                <div>
-                  <Links active='Register'/>
-                  <RegisterForm/>
-                </div>
-              )}/>
-          </Col>
-          </Row>
-          )}
-          {isAuthenticated && <Logout/>
-}
-        </Grid>
-    </nav>
-  )
+return (
+  <nav>
+    {!isAuthenticated && (
+      <div>
+        <Route exact path='/' render={() => (<Links active='Home'/>)}/>
+        <Route path='/login' render={() => (
+          <div>
+            <Links active='Login'/>
+            <LoginForm history={history}/>
+          </div>
+          )}/>
+        <Route path='/register' render={() => (
+          <div>
+            <Links active='Register'/>
+            <RegisterForm/>
+          </div>
+        )}/>
+      </div>
+    )}
+    {isAuthenticated && <Logout/> }
+  </nav>
+)
 }
 
 const mapStateToProps = (state) => {

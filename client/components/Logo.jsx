@@ -1,16 +1,10 @@
 import React from 'react'
-import {Grid, Row, Col} from 'react-bootstrap'
+import { Grid, Row, Col } from 'react-bootstrap'
 
 export default function Logo(props) {
   return (
-    <div>
-      <Grid>
-        <Row className='logoPage'>
-          <Col xs={4} md={4}>
-            <img src='/faviconpan.jpg'/>
-          </Col>
-        </Row>
-      </Grid>
-    </div>
+    <Col xs={4} md={4}>
+      <img src='/faviconpan.jpg' />
+    </Col>
   )
 }

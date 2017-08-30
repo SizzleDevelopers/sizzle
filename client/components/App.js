@@ -1,6 +1,7 @@
 import React from 'react'
 import {HashRouter as Router, Route} from 'react-router-dom'
 import Navbar from '../components/Navbar'
+import Header from '../components/Header'
 import LoginPage from '../container/LoginPage'
 import MainPage from './MainPage'
 import MakeResource from './MakeResource'
@@ -13,7 +14,7 @@ const App = () => {
   return (
     <Router>
       <div>
-        <Navbar/>
+        <Header />
         <Route exact path='/' component={LoginPage}/>
         <Route exact path='/MainPage' component={MainPage}/>
         <Route exact path='/MakeResource' component={MakeResource}/>
