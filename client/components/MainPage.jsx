@@ -9,7 +9,6 @@ import MakeResource from './MakeResource'
 export default function MainPage() {
   return (
     <div className='mainPageButtons' id='mainPageButtons'>
-      <Logo/>
       <div><br></br></div>
       <Grid style={{
         margin: '0 auto'

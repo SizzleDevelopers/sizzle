@@ -46,7 +46,6 @@ export class EventPage extends React.Component {
   render() {
     return (
       <div className='event'>
-        <Logo />
         <Grid>
           <Row>
             <h2>Start a sizzle</h2>

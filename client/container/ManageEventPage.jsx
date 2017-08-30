@@ -131,7 +131,6 @@ export class ManageEventPage extends React.Component {
   render() {
     return (
       <div className='manage-event'>
-        <Logo />
         <form>
           <Grid>
             <Col xs={8} xsOffset={2}>

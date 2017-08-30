@@ -18,7 +18,6 @@ export class EventList extends React.Component {
   render() {
     return (
       <div className='manage-events'>
-        <Logo/>
         <Grid>
           <h2>Events</h2>
           {this.props.events.map((event, i) => <Event key={i} event={event}/>)}
