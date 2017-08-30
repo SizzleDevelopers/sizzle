@@ -19,9 +19,8 @@ export class ManageResources extends React.Component {
   }
 
   render() {
-    // let resources = this.props.resources
     return (
-      <div>
+      <div className="resources">
         <Grid>
           <Row>
             <Col xs={1} md={4}></Col>
@@ -32,7 +31,7 @@ export class ManageResources extends React.Component {
           </Row>
           {this.props.resources.map((resource, i) => {
             return (
-              <div key={i}>
+              <div className="resource" key={i}>
                 <Row>
                   <h1>{resource.title}</h1>
                 </Row>
