@@ -52,33 +52,35 @@ export class EventPage extends React.Component {
             <h2>Start a sizzle</h2>
           </Row>
           <Row>
-            <form >
-              <this.FieldGroup id='title' name='title' type='text' label='Title' placeholder='Please enter title' value={this.state.title} onChange={this.onChange.bind(this)} />
-              <this.FieldGroup id='description' name='description' type='text' label='Description' value={this.state.description} placeholder='Please enter description' onChange={this.onChange.bind(this)} />
-              <FormGroup controlId='date'>
-                <ControlLabel>Date</ControlLabel>
-                <FormGroup controlId='date-inner'>
-                  <Col xs={3}>
-                    <FormControl style={{ marginLeft: '-15px' }} type="date" name='date' value={this.state.date} onChange={this.onChange.bind(this)} />
-                  </Col>
-                  <Col xs={2}>
-                    <FormControl componentClass='select' name='is_am' value={this.state.is_am} onChange={this.onChange.bind(this)}>
-                      <option value={true}>AM</option>
-                      <option value={false}>PM</option>
-                    </FormControl>
-                  </Col>
+            <Col xs={8} xsOffset={2}>
+              <form >
+                <this.FieldGroup id='title' name='title' type='text' label='Title' placeholder='Please enter title' value={this.state.title} onChange={this.onChange.bind(this)} />
+                <this.FieldGroup id='description' name='description' type='text' label='Description' value={this.state.description} placeholder='Please enter description' onChange={this.onChange.bind(this)} />
+                <FormGroup controlId='date'>
+                  <ControlLabel>Date</ControlLabel>
+                  <FormGroup controlId='date-inner'>
+                    <Col xs={3}>
+                      <FormControl style={{ marginLeft: '-15px' }} type="date" name='date' value={this.state.date} onChange={this.onChange.bind(this)} />
+                    </Col>
+                    <Col xs={2}>
+                      <FormControl componentClass='select' name='is_am' value={this.state.is_am} onChange={this.onChange.bind(this)}>
+                        <option value={true}>AM</option>
+                        <option value={false}>PM</option>
+                      </FormControl>
+                    </Col>
+                  </FormGroup>
                 </FormGroup>
-              </FormGroup>
-            </form>
+              </form>
+            </Col>
           </Row>
           <Row>
             <Link to='/EventList' >
-              <Button type='button' style={{marginTop: '2rem'}} onClick={this.onSubmit.bind(this)}>Sizzle!</Button>
+              <Button type='button' style={{ marginTop: '2rem' }} onClick={this.onSubmit.bind(this)}>Sizzle!</Button>
             </Link>
           </Row>
           <Row>
             <Link to='/MainPage'>
-              <Button type="button" style={{marginTop: '2rem'}} className="btn btn-primary">Home</Button>
+              <Button type="button" style={{ marginTop: '2rem' }} className="btn btn-primary">Home</Button>
             </Link>
           </Row>
 

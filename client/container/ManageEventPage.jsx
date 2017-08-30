@@ -86,7 +86,7 @@ export class ManageEventPage extends React.Component {
   }
 
   onLocationChanged(e) {
-    const locationId = document.getElementById('location').value
+    const locationId = e.target.value
     const location = this.props.locations.find((i) => i.id == locationId)
     if (location) {
       const updatedLocation = { ...location, event_id: this.props.eventId }
@@ -118,23 +118,44 @@ export class ManageEventPage extends React.Component {
     window.location = '/#/eventlist'
   }
 
+  FieldGroup({ id, label, help, ...props }) {
+    return (
+      <FormGroup controlId={id}>
+        <ControlLabel>{label}</ControlLabel>
+        <FormControl {...props} />
+        {help && <HelpBlock>{help}</HelpBlock>}
+      </FormGroup>
+    )
+  }
+
   render() {
     return (
       <div className='manage-event'>
         <Logo />
         <form>
-          <select name="location" id="location" onChange={this.onLocationChanged.bind(this)}>
-            {this.renderLocationOptions()}
-          </select>
-          <select name="ingredient" id="ingredient" onChange={this.onIngredientChanged.bind(this)}>
-            {this.renderIngredientOptions()}
-          </select>
-          <select name="skill" id="skill" onChange={this.onSkillChanged.bind(this)}>
-            {this.renderSkillOptions()}
-          </select>
-          <Link to='/EventList'>
-          <button type='button' onClick={this.onSubmit.bind(this)}>Save</button>
-          </Link>
+          <Grid>
+            <Col xs={8} xsOffset={2}>
+              <FormGroup controlId='location'>
+                <ControlLabel>Location</ControlLabel>
+                <FormControl componentClass='select' name="location" id="location" onChange={this.onLocationChanged.bind(this)}>
+                  {this.renderLocationOptions()}
+                </FormControl>
+              </FormGroup>
+              <FormGroup controlId='ingredient'>
+                <ControlLabel>Ingredient</ControlLabel>
+                <FormControl componentClass='select' name="ingredient" id="ingredient" onChange={this.onIngredientChanged.bind(this)}>
+                  {this.renderIngredientOptions()}
+                </FormControl>
+              </FormGroup>
+              <FormGroup controlId='skill'>
+                <ControlLabel>Skill</ControlLabel>
+                <FormControl componentClass='select' name="skill" id="skill" onChange={this.onSkillChanged.bind(this)}>
+                  {this.renderSkillOptions()}
+                </FormControl>
+              </FormGroup>
+              <button type='button' onClick={this.onSubmit.bind(this)}>Save</button>
+            </Col>
+          </Grid>
         </form>
         <Link to='/MainPage'>
           <button type="button" className="btn btn-primary">Home</button>
