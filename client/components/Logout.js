@@ -2,27 +2,21 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logoutUser} from '../actions/auth'
-import {
-  DropdownButton,
-  ButtonToolbar,
-  Button,
-  Grid,
-  Row,
-  Col,
-  MenuItem
-} from 'react-bootstrap'
+import {DropdownButton,ButtonToolbar,Button,Grid,Row,Col,MenuItem} from 'react-bootstrap'
 
 const Logout = (props) => {
   return (
-    <Row>
-    <Link to='/'>
-      <ButtonToolbar>
-      <Button onClick={props.logoutUser}>
-        Logout
-      </Button>
-        </ButtonToolbar>
-    </Link>
-  </Row>
+    <Grid>
+      <Row>
+        <Col className="pageNav-col" sm={6} md={4} lg={6}>
+          <Link to='/'>
+            <ButtonToolbar>
+              <Button onClick={props.logoutUser}>Logout</Button>
+            </ButtonToolbar>
+          </Link>
+        </Col>
+      </Row>
+    </Grid>
   )
 }
 
