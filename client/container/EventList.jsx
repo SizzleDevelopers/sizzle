@@ -17,7 +17,7 @@ export class EventList extends React.Component {
 
   render() {
     return (
-      <div className='event'>
+      <div className='events'>
         <Logo/>
         <Grid>
           <h2>Events</h2>
