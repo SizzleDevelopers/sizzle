@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Grid, Row, Col, Panel, Button } from 'react-bootstrap'
-import { deleteResource } from '../actions/manageResource'
+import { deleteResource } from '../actions/resources'
 
 
 export class Event extends React.Component {

@@ -2,7 +2,7 @@ import React from 'react'
 import { Grid, Row, Col, Input, Button } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { getResources } from '../actions/manageResource'
+import { getResources } from '../actions/resources'
 import Resource from './Resource'
 
 export class ManageResources extends React.Component {

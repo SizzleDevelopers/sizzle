@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Logo from '../components/Logo'
 import { connect } from 'react-redux'
+import { Grid, Row, Col, ControlLabel, HelpBlock, FormGroup, FormControl, Button } from 'react-bootstrap'
 
-import { editResource } from '../actions/resources'
-import { getResources } from '../actions/manageResource'
+import Logo from '../components/Logo'
+import { editResource, getResources } from '../actions/resources'
 
 export class ManageEventPage extends React.Component {
   constructor(props) {
