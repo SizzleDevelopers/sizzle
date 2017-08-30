@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { Grid, Row, Col, FormGroup, FormControl } from 'react-bootstrap'
+import { Grid, Row, Col, ControlLabel, HelpBlock, FormGroup, FormControl, Button } from 'react-bootstrap'
 import { createEvent } from '../actions/events'
 import Logo from '../components/Logo'
 
@@ -33,39 +33,57 @@ export class EventPage extends React.Component {
     this.props.dispatch(createEvent(newEvent), this.props.history.push('/eventlist'))
   }
 
+  FieldGroup({ id, label, help, ...props }) {
+    return (
+      <FormGroup controlId={id}>
+        <ControlLabel>{label}</ControlLabel>
+        <FormControl {...props} />
+        {help && <HelpBlock>{help}</HelpBlock>}
+      </FormGroup>
+    )
+  }
+
   render() {
     return (
       <div className='event'>
         <Logo />
         <Grid>
-          <h2>Start a sizzle</h2>
-          <form onSubmit={this.onSubmit.bind(this)}>
-            <Row>
-              <input type='text' name='title' placeholder='Please enter title' onChange={this.onChange.bind(this)} />
-            </Row>
-            <Row>
-              <input type='text' name='description' placeholder='Please enter description' onChange={this.onChange.bind(this)} />
-            </Row>
-            <Row>
-              <input type="date" name='date' value={this.state.date} onChange={this.onChange.bind(this)} />
-              <select name='is_am' onChange={this.onChange.bind(this)}>
-                <option value='true'>AM</option>
-                <option value='false'>PM</option>
-              </select>
-            </Row>
-            <Row>
-              <Link to='/EventList'>
-                <button type='button' onClick={this.onSubmit.bind(this)}>Sizzle!</button>
-              </Link>
-            </Row>
-          </form>
           <Row>
-            <Link to='/MainPage'>
-              <button type="button" className="btn btn-primary">Home</button>
+            <h2>Start a sizzle</h2>
+          </Row>
+          <Row>
+            <form >
+              <this.FieldGroup id='title' name='title' type='text' label='Title' placeholder='Please enter title' value={this.state.title} onChange={this.onChange.bind(this)} />
+              <this.FieldGroup id='description' name='description' type='text' label='Description' value={this.state.description} placeholder='Please enter description' onChange={this.onChange.bind(this)} />
+              <FormGroup controlId='date'>
+                <ControlLabel>Date</ControlLabel>
+                <FormGroup controlId='date-inner'>
+                  <Col xs={3}>
+                    <FormControl style={{ marginLeft: '-15px' }} type="date" name='date' value={this.state.date} onChange={this.onChange.bind(this)} />
+                  </Col>
+                  <Col xs={2}>
+                    <FormControl componentClass='select' name='is_am' value={this.state.is_am} onChange={this.onChange.bind(this)}>
+                      <option value={true}>AM</option>
+                      <option value={false}>PM</option>
+                    </FormControl>
+                  </Col>
+                </FormGroup>
+              </FormGroup>
+            </form>
+          </Row>
+          <Row>
+            <Link to='/EventList' >
+              <Button type='button' style={{marginTop: '2rem'}} onClick={this.onSubmit.bind(this)}>Sizzle!</Button>
             </Link>
           </Row>
+          <Row>
+            <Link to='/MainPage'>
+              <Button type="button" style={{marginTop: '2rem'}} className="btn btn-primary">Home</Button>
+            </Link>
+          </Row>
+
         </Grid>
-      </div>
+      </div >
     )
   }
 }
