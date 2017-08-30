@@ -5,8 +5,9 @@ import jump from 'jump.js'
 const Info = () => {
   return (
     <div>
+      <h1 onClick={() => jump('.Info')}>Sizzle</h1>
       <Grid className="Info">
-        <h1>Info</h1>
+
         <Row>
           <Col xs={1} md={4}></Col>
           <Col xs={4} md={4}>
