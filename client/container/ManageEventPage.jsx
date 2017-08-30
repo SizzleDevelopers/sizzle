@@ -119,9 +119,9 @@ export class ManageEventPage extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='manage-event'>
         <Logo />
-        <form className='resources' onSubmit={this.onSubmit.bind(this)}>
+        <form onSubmit={this.onSubmit.bind(this)}>
           <select name="location" id="location" onChange={this.onLocationChanged.bind(this)}>
             {this.renderLocationOptions()}
           </select>
