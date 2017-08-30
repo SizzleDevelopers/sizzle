@@ -5,23 +5,42 @@ exports.seed = function(knex, Promise) {
     return knex('resources').insert([
       {
         id: 1,
-        title: 'rowboat',
+        title: 'Ronald McDonald House',
         type: 'location',
         user_id: 1,
         event_id: null
       }, {
         id: 2,
-        title: 'rowboat',
+        title: 'Fresh veggies',
         type: 'ingredient',
         user_id: 2,
         event_id: null
       }, {
         id: 3,
-        title: 'rowboat',
+        title: 'Baker',
         type: 'skill',
         user_id: 3,
         event_id: null
+      },{
+        id: 4,
+        title: 'Butcher',
+        type: 'skill',
+        user_id: 4,
+        event_id: null
+      },{
+        id: 5,
+        title: 'My kitchen ',
+        type: 'location',
+        user_id: 5,
+        event_id: null
+      },{
+        id: 6,
+        title: '10 kg chicken breast',
+        type: 'ingredient',
+        user_id: 6,
+        event_id: null
       }
+
     ]);
   });
 };

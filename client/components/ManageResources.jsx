@@ -15,7 +15,6 @@ export class ManageResources extends React.Component {
   }
 
   render() {
-    // let resources = this.props.resources
     return (
       <div className='manage-resources'>
         <Grid>
