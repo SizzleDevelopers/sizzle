@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Route, withRouter} from 'react-router-dom'
+import {ButtonToolbar, Button, Grid, Row, Col} from 'react-bootstrap'
 import Links from './Links'
 import Logout from './Logout'
 import LoginForm from './LoginForm'
@@ -9,13 +10,14 @@ import RegisterForm from './RegisterForm'
 const Navbar = ({isAuthenticated, history}) => {
   return (
     <nav>
-      <div>
-        <div>
+
+        <Grid style={{marginLeft: '600px'}}>
           {!isAuthenticated && (
-            <div>
+            <Row>
+              <Col className="pageNav-col" sm={6} md={4} lg={6}>
               <Route exact path='/' render={() => (<Links active='Home'/>)}/>
               <Route path='/login' render={() => (
-                <div>
+                <div style={{marginLeft: '100px'}}>
                   <Links active='Login'/>
                   <LoginForm history={history}/>
                 </div>
@@ -26,13 +28,13 @@ const Navbar = ({isAuthenticated, history}) => {
                   <RegisterForm/>
                 </div>
               )}/>
-            </div>
+          </Col>
+          </Row>
           )}
           {isAuthenticated && <Logout/>
 }
-          <hr/>
-        </div>
-      </div>
+        </Grid>
+        
     </nav>
   )
 }

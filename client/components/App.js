@@ -13,6 +13,7 @@ const App = () => {
   return (
     <Router>
       <div>
+        <Navbar/>
         <Route exact path='/' component={LoginPage}/>
         <Route exact path='/MainPage' component={MainPage}/>
         <Route exact path='/MakeResource' component={MakeResource}/>
@@ -21,7 +22,6 @@ const App = () => {
         <Route exact path='/eventlist' component={EventList}/>
         <Route exact path='/manageevent/:id' component={(props) => <ManageEventPage eventId={props.match.params.id}/>}/>
         <div className='quote'>
-          <Navbar/>
         </div>
       </div>
     </Router>
