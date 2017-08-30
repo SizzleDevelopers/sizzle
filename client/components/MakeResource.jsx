@@ -60,7 +60,6 @@ class MakeResource extends React.Component {
               </div>
             </Col>
           </Row>
-
           <Link to='/MainPage'>
             <ButtonToolbar>
               <Button bsStyle="primary" bsSize="large" className="btn btn-primary">Home</Button>
