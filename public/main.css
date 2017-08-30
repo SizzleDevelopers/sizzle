@@ -11,3 +11,7 @@ h1 {
   font-family: 'Lobster', cursive;
   text-align: center;
 }
+
+.makeEventButton {
+  justify-content: center;
+}

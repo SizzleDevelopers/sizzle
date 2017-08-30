@@ -10,51 +10,62 @@ export default function MainPage() {
   return (
     <div className='mainPageButtons' id='mainPageButtons'>
       <Logo/>
-      <Grid style={{marginTop:'40px'}}>
+      <div><br></br></div>
+      <Grid style={{
+        margin: '0 auto'
+      }}>
         <Row className='makeEventButton'>
-          <Col className="pageNav-col" sm={6} md={4} lg={6}>
+          <Col xs={1} md={4}></Col>
+          <Col xs={4} md={4}>
             <Link to='/event'>
               <ButtonToolbar>
-                <Button bsStyle="primary" bsSize="large" className="btn btn-primary">Make Event</Button>
+                <Button bsStyle="primary" bsSize="large" className="btn btn-primary" block>Make Event</Button>
               </ButtonToolbar>
             </Link>
           </Col>
+          <Col xs={1} md={4}></Col>
         </Row>
         <div>
           <br></br>
         </div>
         <Row className='manageEventButton'>
-          <Col className="pageNav-col" sm={6} md={4} lg={6}>
+          <Col xs={1} md={4}></Col>
+          <Col xs={4} md={4}>
             <Link to='/eventlist'>
               <ButtonToolbar>
-                <Button bsStyle="primary" bsSize="large" className="btn btn-primary">Manage Event</Button>
+                <Button bsStyle="primary" bsSize="large" className="btn btn-primary" block>Manage Event</Button>
               </ButtonToolbar>
             </Link>
           </Col>
+          <Col xs={1} md={4}></Col>
         </Row>
         <div>
           <br></br>
         </div>
         <Row className='makeResourceButton'>
-          <Col className="pageNav-col" sm={6} md={4} lg={6}>
+          <Col xs={1} md={4}></Col>
+          <Col xs={4} md={4}>
             <Link to='/makeResource'>
               <ButtonToolbar>
-                <Button bsStyle="primary" bsSize="large" className="btn btn-primary">Make Resource</Button>
+                <Button bsStyle="primary" bsSize="large" className="btn btn-primary" block>Make Resource</Button>
               </ButtonToolbar>
             </Link>
           </Col>
+          <Col xs={1} md={4}></Col>
         </Row>
         <div>
           <br></br>
         </div>
         <Row className='manageResourcesButton'>
-          <Col className="pageNav-col" sm={6} md={4} lg={6}>
+          <Col xs={1} md={4}></Col>
+          <Col xs={4} md={4}>
             <Link to='/manageResources'>
               <ButtonToolbar>
-                <Button bsStyle="primary" bsSize="large" className="btn btn-primary">Manage Resource</Button>
+                <Button bsStyle="primary" bsSize="large" className="btn btn-primary" block>Manage Resource</Button>
               </ButtonToolbar>
             </Link>
           </Col>
+          <Col xs={1} md={4}></Col>
         </Row>
       </Grid>
     </div>
