@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import moment from 'moment'
 import { Grid, Row, Col, Input, Panel, Button } from 'react-bootstrap'
 import { removeEvent } from '../actions/events'
 
@@ -25,6 +26,7 @@ export class Event extends React.Component {
           <Grid>
             <h3>{event.title}</h3>
             <p>{event.description}</p>
+            <p>{moment(event.date).format('DD-MMM-YYYY')} </p>
             <Row>
               <div className='text-right'>
                 <Col>
