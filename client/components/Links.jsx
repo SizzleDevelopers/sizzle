@@ -7,7 +7,7 @@ const Links = ({active}) => {
     <div>
       <Grid>
         <Row>
-          <Col xs={4} md={4}>
+          <Col className='link'xs={4} md={4}>
           {active === 'Register'
             ? 'Register'
             : <Link to='/register'>Register</Link>}| {active === 'Login'

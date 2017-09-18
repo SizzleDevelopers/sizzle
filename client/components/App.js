@@ -13,7 +13,7 @@ import ManageEventPage from '../container/ManageEventPage'
 const App = () => {
   return (
     <Router>
-      <div>
+      <div className='container'>
         <Header />
         <Route exact path='/' component={LoginPage}/>
         <Route exact path='/MainPage' component={MainPage}/>

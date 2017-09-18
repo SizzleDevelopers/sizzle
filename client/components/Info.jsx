@@ -5,7 +5,7 @@ import jump from 'jump.js'
 const Info = () => {
   return (
     <div className='info-outer'>
-      <h1 onClick={() => jump('.Info')}>Sizzle</h1>
+      <h1 onClick={() => jump('.Info')}>Sizzleee</h1>
       <Grid className="Info">
 
         <Row>
