@@ -13,10 +13,10 @@ const Header = (props) => {
             <Logo text-left />
           </Col>
           <Col xs={6}>
-            <div className='text-right'>
-              <Navbar />
-            </div>
           </Col>
+          <div className='nav'>
+            <Navbar />
+          </div>
         </Row>
       </Grid>
     </div>
