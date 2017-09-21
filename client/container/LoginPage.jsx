@@ -4,6 +4,8 @@ import Logo from '../components/Logo'
 import Info from '../components/Info'
 import Navbar from '../components/Navbar'
 import LoginForm from '../components/LoginForm'
+import Links from '../components/Links'
+import {ButtonToolbar, Button, Grid, Row, Col} from 'react-bootstrap'
 
 
 export default class LoginPage extends React.Component {
@@ -17,6 +19,7 @@ export default class LoginPage extends React.Component {
     return (
       <div>
         <Info />
+        <Navbar/>
       </div>
     )
   }
